@@ -16,4 +16,8 @@ export class InventoryPage {
   async addBackpackToCart() {
     await this.addBackpackButton.click();
   }
+
+  async removeBackpackFromCart() {
+    await this.removeBackpackButton.click();
+  }
 }
