@@ -5,12 +5,14 @@ export class InventoryPage {
   readonly addBackpackButton: Locator;
   readonly removeBackpackButton: Locator;
   readonly cartBadge: Locator;
+  readonly shoppingCartLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.addBackpackButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
     this.removeBackpackButton = page.locator('[data-test="remove-sauce-labs-backpack"]');
     this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
+    this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
   }
 
   async addBackpackToCart() {
@@ -19,5 +21,9 @@ export class InventoryPage {
 
   async removeBackpackFromCart() {
     await this.removeBackpackButton.click();
+  }
+
+  async openCart() {
+    await this.shoppingCartLink.click();
   }
 }
