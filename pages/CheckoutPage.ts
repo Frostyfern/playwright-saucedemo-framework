@@ -10,6 +10,7 @@ export class CheckoutPage {
   readonly continueButton: Locator;
   readonly finishButton: Locator;
   readonly completeMessage: Locator;
+  readonly errorMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +20,7 @@ export class CheckoutPage {
     this.continueButton = page.locator('[data-test="continue"]');
     this.finishButton = page.locator('[data-test="finish"]');
     this.completeMessage = page.locator('[data-test="complete-text"]');
+    this.errorMessage = page.locator('[data-test="error"]');
   }
 
   async enterCustomerInfo(firstName: string, lastName: string, postalCode: string) {
