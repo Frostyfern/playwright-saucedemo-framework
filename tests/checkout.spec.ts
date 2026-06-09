@@ -28,9 +28,9 @@ test('user can complete checkout successfully', async ({ page }) => {
   await cartPage.checkout();
 
   await checkoutPage.enterCustomerInfo(
-    'Fernando',
     'Tester',
-    '33418'
+    'Tester',
+    '12345'
   );
 
   await checkoutPage.continueCheckout();
@@ -65,7 +65,7 @@ test('user sees error when first name is missing during checkout', async ({ page
   await checkoutPage.enterCustomerInfo(
     '',
     'Tester',
-    '33418'
+    '12345'
   );
 
   await checkoutPage.continueCheckout();
@@ -74,5 +74,69 @@ test('user sees error when first name is missing during checkout', async ({ page
 
   await expect(checkoutPage.errorMessage).toContainText(
     'Error: First Name is required'
+  );
+});
+
+test('user sees error when last name is missing during checkout', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const inventoryPage = new InventoryPage(page);
+  const cartPage = new CartPage(page);
+  const checkoutPage = new CheckoutPage(page);
+
+  await loginPage.goto();
+
+  await loginPage.login(
+    'standard_user',
+    'secret_sauce'
+  );
+
+  await inventoryPage.addBackpackToCart();
+  await inventoryPage.openCart();
+  await cartPage.checkout();
+
+  await checkoutPage.enterCustomerInfo(
+    'Tester',
+    '',
+    '12345'
+  );
+
+  await checkoutPage.continueCheckout();
+
+  await expect(checkoutPage.errorMessage).toBeVisible();
+
+  await expect(checkoutPage.errorMessage).toContainText(
+    'Error: Last Name is required'
+  );
+});
+
+test('user sees error when postal code is missing during checkout', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  const inventoryPage = new InventoryPage(page);
+  const cartPage = new CartPage(page);
+  const checkoutPage = new CheckoutPage(page);
+
+  await loginPage.goto();
+
+  await loginPage.login(
+    'standard_user',
+    'secret_sauce'
+  );
+
+  await inventoryPage.addBackpackToCart();
+  await inventoryPage.openCart();
+  await cartPage.checkout();
+
+  await checkoutPage.enterCustomerInfo(
+    'Tester',
+    'Tester',
+    ''
+  );
+
+  await checkoutPage.continueCheckout();
+
+  await expect(checkoutPage.errorMessage).toBeVisible();
+
+  await expect(checkoutPage.errorMessage).toContainText(
+    'Error: Postal Code is required'
   );
 });
