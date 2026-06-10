@@ -1,16 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 
 test('user can add backpack to cart', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
 
-  await loginPage.goto();
-  await loginPage.login(
-    'standard_user',
-    'secret_sauce'
-  );
+  await inventoryPage.goto();
 
   await inventoryPage.addBackpackToCart();
 
@@ -19,14 +13,9 @@ test('user can add backpack to cart', async ({ page }) => {
 });
 
 test('user can remove backpack from cart', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
 
-  await loginPage.goto();
-  await loginPage.login(
-    'standard_user',
-    'secret_sauce'
-  );
+  await inventoryPage.goto();
   await inventoryPage.addBackpackToCart();
 
   await expect(inventoryPage.cartBadge).toHaveText('1');

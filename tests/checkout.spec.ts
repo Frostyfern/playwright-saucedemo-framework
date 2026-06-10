@@ -1,23 +1,16 @@
 
 
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 
 test('user can complete checkout successfully', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
 
-  await loginPage.goto();
-
-  await loginPage.login(
-    'standard_user',
-    'secret_sauce'
-  );
+  await inventoryPage.goto();
 
   await inventoryPage.addBackpackToCart();
 
@@ -46,17 +39,11 @@ test('user can complete checkout successfully', async ({ page }) => {
 });
 
 test('user sees error when first name is missing during checkout', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
 
-  await loginPage.goto();
-
-  await loginPage.login(
-    'standard_user',
-    'secret_sauce'
-  );
+  await inventoryPage.goto();
 
   await inventoryPage.addBackpackToCart();
   await inventoryPage.openCart();
@@ -78,17 +65,11 @@ test('user sees error when first name is missing during checkout', async ({ page
 });
 
 test('user sees error when last name is missing during checkout', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
 
-  await loginPage.goto();
-
-  await loginPage.login(
-    'standard_user',
-    'secret_sauce'
-  );
+  await inventoryPage.goto();
 
   await inventoryPage.addBackpackToCart();
   await inventoryPage.openCart();
@@ -110,17 +91,11 @@ test('user sees error when last name is missing during checkout', async ({ page 
 });
 
 test('user sees error when postal code is missing during checkout', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   const inventoryPage = new InventoryPage(page);
   const cartPage = new CartPage(page);
   const checkoutPage = new CheckoutPage(page);
 
-  await loginPage.goto();
-
-  await loginPage.login(
-    'standard_user',
-    'secret_sauce'
-  );
+  await inventoryPage.goto();
 
   await inventoryPage.addBackpackToCart();
   await inventoryPage.openCart();

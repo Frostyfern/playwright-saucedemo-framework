@@ -15,6 +15,10 @@ export class InventoryPage {
     this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
   }
 
+  async goto() {
+    await this.page.goto('https://www.saucedemo.com/inventory.html');
+  }
+
   async addBackpackToCart() {
     await this.addBackpackButton.click();
   }
