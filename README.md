@@ -70,12 +70,12 @@ npx playwright test
 Open the HTML report:
 
 ```bash
- npx playwright show-report
+npx playwright show-report
+```
 
 ## Continuous Integration
 
 GitHub Actions automatically executes the Playwright test suite on pushes and pull requests targeting the `main` branch. This ensures the framework is validated in a clean environment and demonstrates modern CI practices used by QA Automation teams.
-```
 
 ## Current Status
 
