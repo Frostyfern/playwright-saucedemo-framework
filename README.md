@@ -1,6 +1,6 @@
 
 # Playwright SauceDemo Framework
-![Playwright Tests](https://github.com/Frostyfern/playwright-saucedemo-framework/actions/workflows/playwright.yml/badge.svg)
+[![Playwright Tests](https://github.com/Frostyfern/playwright-saucedemo-framework/actions/workflows/playwright.yml/badge.svg)](https://github.com/Frostyfern/playwright-saucedemo-framework/actions)
 
 A Playwright + TypeScript automation framework built against SauceDemo to demonstrate modern QA Automation practices and end-to-end testing workflows.
 
