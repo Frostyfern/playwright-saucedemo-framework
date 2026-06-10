@@ -1,4 +1,6 @@
+
 # Playwright SauceDemo Framework
+![Playwright Tests](https://github.com/Frostyfern/playwright-saucedemo-framework/actions/workflows/playwright.yml/badge.svg)
 
 A Playwright + TypeScript automation framework built against SauceDemo to demonstrate modern QA Automation practices and end-to-end testing workflows.
 
@@ -13,11 +15,13 @@ This project showcases a maintainable Playwright framework using the Page Object
 - Node.js
 - Git
 - GitHub
+- GitHub Actions (CI)
 
 ## Framework Design
 
 - Page Object Model (POM)
 - Cross-browser testing (Chromium, Firefox, WebKit)
+- Storage State authentication
 - Positive and negative test coverage
 - Business workflow-oriented test organization
 
@@ -66,11 +70,17 @@ npx playwright test
 Open the HTML report:
 
 ```bash
-npx playwright show-report
+ npx playwright show-report
+
+## Continuous Integration
+
+GitHub Actions automatically executes the Playwright test suite on pushes and pull requests targeting the `main` branch. This ensures the framework is validated in a clean environment and demonstrates modern CI practices used by QA Automation teams.
 ```
 
 ## Current Status
 
 - 8 automated test scenarios
 - 24 passing cross-browser tests
+- Storage State authentication implemented
+- GitHub Actions CI pipeline configured
 - Framework built to demonstrate QA Automation engineering skills and best practices
