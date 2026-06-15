@@ -34,6 +34,10 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'api',
+      testMatch: /.*\.api\.spec\.ts/,
+    },
+    {
       name: 'setup',
       testMatch: /.*\.setup\.ts/,
     },
@@ -41,6 +45,7 @@ export default defineConfig({
     {
       name: 'chromium',
       dependencies: ['setup'],
+      testIgnore: /.*\.api\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
@@ -50,6 +55,7 @@ export default defineConfig({
     {
       name: 'firefox',
       dependencies: ['setup'],
+      testIgnore: /.*\.api\.spec\.ts/,
       use: {
         ...devices['Desktop Firefox'],
         storageState: 'playwright/.auth/user.json',
@@ -59,6 +65,7 @@ export default defineConfig({
     {
       name: 'webkit',
       dependencies: ['setup'],
+      testIgnore: /.*\.api\.spec\.ts/,
       use: {
         ...devices['Desktop Safari'],
         storageState: 'playwright/.auth/user.json',
